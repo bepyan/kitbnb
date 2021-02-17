@@ -1,9 +1,0 @@
-dist
-node_modules
-.env
-
-.DS_*
-*.log
-logs
-**/*.backup.*
-**/*.back.*
