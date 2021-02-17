@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function TmpList() {
-    return (
-        <div>
-            tmp list
-        </div>
-    )
+  return <div>tmp list</div>;
 }
 
-export default TmpList
+export default TmpList;
