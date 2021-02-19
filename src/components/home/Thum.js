@@ -14,7 +14,7 @@ function Thum({ item }) {
             {location}의 {type}
           </SubText>
           <Text>{title}</Text>
-          <SubText>{displayConfig(config)}</SubText>
+          <Config>{displayConfig(config)}</Config>
           <ThumStar stars={stars} />
         </Col>
       </Card>
@@ -72,6 +72,12 @@ const Col = styled.div`
   & > * {
     margin-bottom: 4px;
   }
+  & > .title {
+    margin-bottom: 1rem;
+  }
+  & > div{
+    margin-top: auto;
+  }
 `;
 
 const Img = styled.img`
@@ -89,5 +95,8 @@ const SubText = styled(Text)`
   color: gray;
   font-size: small;
 `;
+const Config = styled(SubText)`
+  margin-top: 0.3rem;
+`
 
 export default Thum;
