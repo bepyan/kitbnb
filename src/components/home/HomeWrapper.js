@@ -28,12 +28,6 @@ const Wrapper = styled.div`
   margin: auto;
   display: flex;
   flex-wrap: wrap;
-  @media screen and (min-width: 745px) {
-    padding-top: 7rem;
-  }
-  @media screen and (max-width: 745px) {
-    padding-top: 5rem;
-  }
 `;
 const Introduce = styled.div`
   width: 100%;

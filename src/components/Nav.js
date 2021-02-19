@@ -1,11 +1,16 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 
 function Nav() {
+  const history = useHistory();
+  const onUrl = (url) => {
+    history.push(url);
+  }
   return (
     <>
       <Wrapper>
-        <Logo>
+        <Logo onClick={() => onUrl('/')}>
           <img src="icons8-airbnb-50.png" width={35} alt="logo" />
           <Title>kitbnb</Title>
         </Logo>
@@ -42,6 +47,7 @@ function Nav() {
           />
         </Button>
       </Mobile>
+      <Margin/>
     </>
   );
 }
@@ -107,7 +113,6 @@ const Mobile = styled.div`
   width: 100%;
   height: 48px;
   padding: 8px;
-  padding-right: 1rem;
   border-bottom: 1px solid #ececee;
   @media screen and (min-width: 745px) {
     display: none;
@@ -115,9 +120,20 @@ const Mobile = styled.div`
   & > button {
     font-size: 15px;
   }
+  & :first-child{
+    padding-right: 0;
+  }
   & :last-child {
     margin-left: auto;
     padding-right: 1rem;
   }
 `;
+const Margin = styled.div`
+  @media screen and (min-width: 745px) {
+    padding-top: 7rem;
+  }
+  @media screen and (max-width: 745px) {
+    padding-top: 5rem;
+  }
+`
 export default Nav;

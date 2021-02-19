@@ -1,13 +1,21 @@
 import { displayConfig } from "libs/util";
 import React from "react";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import ThumStar from "./ThumStar";
 
 function Thum({ item }) {
+  const history = useHistory();
   const { title, location, imgs, stars, type, config } = item;
+  const onDetail = () => {
+    history.push({
+      pathname: '/detail',
+      state: {item}
+    })
+  }
   return (
     <>
-      <Card>
+      <Card onClick={onDetail}>
         <Img src={imgs[0]} />
         <Col>
           <SubText>
@@ -19,7 +27,7 @@ function Thum({ item }) {
         </Col>
       </Card>
 
-      <MoblieCard>
+      <MoblieCard onClick={onDetail}>
         <Img src={imgs[0]} />
         <ThumStar stars={stars} />
         <Text>

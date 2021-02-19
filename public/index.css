@@ -1,6 +1,10 @@
 p {
-    all: unset;
+  all: unset;
 }
 body {
-    all: unset;
+  all: unset;
+  -ms-overflow-style: none;
+}
+html {
+  overflow-y: scroll;
 }
