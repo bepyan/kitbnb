@@ -1,8 +1,8 @@
 const listDB = [
   {
+    id: '0',
     location: "구미",
-    title:
-      "[Maria's]수유역5분!♥서울안심숙소♥",
+    title: "0. [Maria's]수유역5분!♥서울안심숙소♥지금 바로 가즈아",
     type: "콘도(아파트) 전체",
     config: {
       maxPeople: 5,
@@ -30,12 +30,26 @@ const listDB = [
         아이들도 편하게 묶을수있도록
         아늑한 한실룸도 있습니다`,
     stars: {
-        point: 600,
-        hits: 141
+      point: 600,
+      hits: 141,
     },
-    imgs: ["https://placeimg.com/640/480/nature", "https://placeimg.com/640/480/animals", "https://placeimg.com/640/480/people"],
+    imgs: [
+      "https://placeimg.com/640/480/nature",
+      "https://placeimg.com/640/480/animals",
+      "https://placeimg.com/640/480/people",
+    ],
   },
 ];
-for(let i = 0; i < 20; i++)
-    listDB.push(listDB[0]);
-export { listDB };
+for (let i = 1; i < 20; i++) {
+  const json = listDB[i - 1];
+  const clone = JSON.parse(JSON.stringify(json))
+  clone.id = String(i);
+  const str = json.title;
+  clone.title = i + str.substring(str.indexOf('.'));
+  listDB.push(clone);
+}
+const findListItem = (id) => {
+  const target = listDB.find(item => item.id === id)
+  return target;
+}
+export { listDB, findListItem};

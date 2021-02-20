@@ -6,11 +6,11 @@ import ThumStar from "./ThumStar";
 
 function Thum({ item }) {
   const history = useHistory();
-  const { title, location, imgs, stars, type, config } = item;
+  const { id, title, location, imgs, stars, type, config } = item;
   const onDetail = () => {
     history.push({
       pathname: '/detail',
-      state: {item}
+      state: {id}
     })
   }
   return (

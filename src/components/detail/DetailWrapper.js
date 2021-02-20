@@ -3,18 +3,21 @@ import styled from "styled-components";
 import { useLocation } from "react-router";
 import ThumStar from "components/home/ThumStar";
 import Discrip from "./Discrip";
+import RateStar from "./RateStar";
+import { findListItem } from "libs/storage";
 
-function DetailWrapper(props) {
-  const location = useLocation();
-  const [item, setItem] = useState(location.state.item);
-  const { title, location: loca, imgs, stars } = item;
+function DetailWrapper() {
+  const {id} = useLocation().state;
+  const [item, setItem] = useState(findListItem(id));
+  const [stars, setStars] = useState(item.stars)
+  const { title, location, imgs } = item;
 
   return (
     <Wrapper>
       <Title> {title} </Title>
       <Sub>
         <ThumStar stars={stars} />
-        <a href={`https://www.airbnb.co.kr/s/${loca}/homes`}> {loca} </a>
+        <button> {location} </button>
         <div>
           <button> 공유하기 </button>
           <button> ♡ </button>
@@ -26,9 +29,7 @@ function DetailWrapper(props) {
         })}
       </Imgs>
       <Discrip item={item}></Discrip>
-      <div>
-          start
-      </div>
+      <RateStar useItem={[item, setItem]} useStars={[stars, setStars]}/>
       <Empty/>
     </Wrapper>
   );
@@ -47,16 +48,6 @@ const Sub = styled.div`
   }
   & > :last-child {
     margin-left: auto;
-  }
-  & button {
-    all: unset;
-    padding: 1rem;
-    font-size: 14px;
-    font-weight: 700;
-    cursor: pointer;
-    &:hover {
-      background: rgba(150, 150, 150, 0.1);
-    }
   }
 `;
 const Imgs = styled.div`
