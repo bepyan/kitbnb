@@ -9,10 +9,10 @@ function Thum({ item }) {
   const { id, title, location, imgs, stars, type, config } = item;
   const onDetail = () => {
     history.push({
-      pathname: '/detail',
-      state: {id}
-    })
-  }
+      pathname: "/detail",
+      state: { id },
+    });
+  };
   return (
     <>
       <Card onClick={onDetail}>
@@ -83,7 +83,7 @@ const Col = styled.div`
   & > .title {
     margin-bottom: 1rem;
   }
-  & > div{
+  & > div {
     margin-top: auto;
   }
 `;
@@ -105,6 +105,6 @@ const SubText = styled(Text)`
 `;
 const Config = styled(SubText)`
   margin-top: 0.3rem;
-`
+`;
 
 export default Thum;

@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { listDB } from "libs/storage";
+import { listDB, searchListItems } from "libs/storage";
 import Thum from "./Thum";
+import { useLocation } from "react-router-dom";
 
 function HomeWrapper() {
+  const location = useLocation();
+
+  useEffect(() => {
+    const { state } = location;
+    setList(state ? searchListItems(state.text) : listDB);
+  }, [location.state]);
+
   const [list, setList] = useState(listDB);
   const url =
     "https://www.airbnb.co.kr/help/topic/1418/government-travel-restrictions-and-advisories";
@@ -39,10 +47,10 @@ const Introduce = styled.div`
     font-size: 14px;
     color: darkslategray;
   }
-  & div{
+  & div {
     font-size: small;
     padding-top: 1rem;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
   }
-`
+`;
 export default HomeWrapper;

@@ -52,4 +52,8 @@ const findListItem = (id) => {
   const target = listDB.find(item => item.id === id)
   return target;
 }
-export { listDB, findListItem};
+const searchListItems = (text) => {
+  const items = listDB.filter(item => item.title.includes(text))
+  return items;
+}
+export { listDB, findListItem, searchListItems};

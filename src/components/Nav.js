@@ -1,22 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 
 function Nav() {
   const history = useHistory();
+  const [text, setText] = useState("");
   const onUrl = (url) => {
+    setText('')
     history.push(url);
-  }
+  };
+  const onSearch = (e) => {
+    e.preventDefault();
+    history.push({ pathname: "/", state: { text } });
+  };
+  const onTextChange = (e) => setText(e.target.value);
   return (
     <>
       <Wrapper>
-        <Logo onClick={() => onUrl('/')}>
+        <Logo onClick={() => onUrl("/")}>
           <img src="icons8-airbnb-50.png" width={35} alt="logo" />
           <Title>kitbnb</Title>
         </Logo>
-        <Search>
-          <input placeholder="검색하기" />
-          <img src="icons8-search-50.png" width={35} alt="search" />
+        <Search onSubmit={onSearch}>
+          <input placeholder="검색하기" value={text} onChange={onTextChange} />
+          <img
+            src="icons8-search-50.png"
+            width={35}
+            alt="search"
+            onClick={onSearch}
+          />
         </Search>
         <Button> 호스트 되기 </Button>
         <Button>
@@ -47,7 +59,7 @@ function Nav() {
           />
         </Button>
       </Mobile>
-      <Margin/>
+      <Margin />
     </>
   );
 }
@@ -120,7 +132,7 @@ const Mobile = styled.div`
   & > button {
     font-size: 15px;
   }
-  & :first-child{
+  & :first-child {
     padding-right: 0;
   }
   & :last-child {
@@ -135,5 +147,5 @@ const Margin = styled.div`
   @media screen and (max-width: 745px) {
     padding-top: 5rem;
   }
-`
+`;
 export default Nav;
