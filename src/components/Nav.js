@@ -5,15 +5,20 @@ import styled from "styled-components";
 function Nav() {
   const history = useHistory();
   const [text, setText] = useState("");
+  const onTextChange = (e) => setText(e.target.value);
+
+  const onBack = () => {
+    if(history.location.pathname === '/') return;
+    history.go(-1);
+  }
   const onUrl = (url) => {
-    setText('')
+    setText("");
     history.push(url);
   };
   const onSearch = (e) => {
     e.preventDefault();
     history.push({ pathname: "/", state: { text } });
   };
-  const onTextChange = (e) => setText(e.target.value);
   return (
     <>
       <Wrapper>
@@ -44,14 +49,18 @@ function Nav() {
           />
         </Button>
       </Wrapper>
+
       <Mobile>
-        <Button>
+        <Button onClick={onBack}>
           <img
             src="https://img.icons8.com/ios-glyphs/20/000000/back.png"
             alt="back"
           />
         </Button>
-        <Button> 금오 </Button>
+        <Button onClick={() => onUrl('/')}> 금오 </Button>
+        <Search onSubmit={onSearch}>
+          <input placeholder="검색하기" value={text} onChange={onTextChange} />
+        </Search>
         <Button>
           <img
             src="https://img.icons8.com/ios/20/000000/menu--v1.png"
@@ -91,14 +100,22 @@ const Search = styled.form`
   display: flex;
   align-content: center;
   padding: 6px 7px 7px 1rem;
+  @media screen and (min-width: 745px) {
+    width: 50%;
+  }
+  @media screen and (max-width: 745px) {
+    width: 40%;
+  }
   margin: 0 auto 0 auto;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 30px;
   & input {
     all: unset;
+    width: auto;
   }
   & img {
     cursor: pointer;
+    margin-left: auto;
   }
   &:hover {
     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
