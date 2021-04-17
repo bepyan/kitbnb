@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.js": "/kitbnb/static/js/main.f86ce72e.chunk.js",
+    "main.js.map": "/kitbnb/static/js/main.f86ce72e.chunk.js.map",
+    "runtime-main.js": "/kitbnb/static/js/runtime-main.fa2b50af.js",
+    "runtime-main.js.map": "/kitbnb/static/js/runtime-main.fa2b50af.js.map",
+    "static/js/2.cf91db0a.chunk.js": "/kitbnb/static/js/2.cf91db0a.chunk.js",
+    "static/js/2.cf91db0a.chunk.js.map": "/kitbnb/static/js/2.cf91db0a.chunk.js.map",
+    "index.html": "/kitbnb/index.html",
+    "precache-manifest.5b30fcbb56b2b8e71e694e4c0aa3ea3f.js": "/kitbnb/precache-manifest.5b30fcbb56b2b8e71e694e4c0aa3ea3f.js",
+    "service-worker.js": "/kitbnb/service-worker.js",
+    "static/js/2.cf91db0a.chunk.js.LICENSE.txt": "/kitbnb/static/js/2.cf91db0a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fa2b50af.js",
+    "static/js/2.cf91db0a.chunk.js",
+    "static/js/main.f86ce72e.chunk.js"
+  ]
+}

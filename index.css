@@ -1,0 +1,20 @@
+html {
+  overflow-y: scroll;
+}
+body {
+  all: unset;
+  -ms-overflow-style: none;
+}
+p {
+  all: unset;
+}
+button{
+  all: unset;
+  padding: 1rem;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+button:hover {
+    background: rgba(150, 150, 150, 0.1);
+}
